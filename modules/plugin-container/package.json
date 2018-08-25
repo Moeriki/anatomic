@@ -1,5 +1,5 @@
 {
-  "name": "@anatomic/app-core",
+  "name": "@anatomic/plugin-container",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
@@ -12,8 +12,13 @@
   },
   "module": "index.js",
   "dependencies": {
-    "@anatomic/app": "1.0.0",
-    "@anatomic/plugin-container": "1.0.0",
-    "@anatomic/plugin-events": "1.0.0"
+    "debug": "3.1.0",
+    "fn-args": "3.0.0"
+  },
+  "devDependencies": {
+    "@anatomic/app": "^1"
+  },
+  "peerDependencies": {
+    "@anatomic/app": "^1"
   }
 }

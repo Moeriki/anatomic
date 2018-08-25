@@ -27,7 +27,8 @@ const extension = {
    * @return {this}
    */
   emit(eventName, ...args) {
-    this.plugin[NAMESPACE].emitter.emit(eventName, ...args);
+    const { emitter } = this.plugin[NAMESPACE];
+    emitter.emit(eventName, ...args);
     return this;
   },
   /**
@@ -36,7 +37,8 @@ const extension = {
    * @return {Promise<Array<any>>} results of the listeners via Promise.all
    */
   emitAsync(eventName, ...args) {
-    return this.plugin[NAMESPACE].emitter.emitAsync(eventName, ...args);
+    const { emitter } = this.plugin[NAMESPACE];
+    return emitter.emitAsync(eventName, ...args);
   },
   /**
    * @param {string} eventName
@@ -44,7 +46,8 @@ const extension = {
    * @return {this}
    */
   off(eventName, listener) {
-    this.plugin[NAMESPACE].emitter.off(eventName, listener);
+    const { emitter } = this.plugin[NAMESPACE];
+    emitter.off(eventName, listener);
     return this;
   },
   /**
@@ -53,7 +56,8 @@ const extension = {
    * @return {this}
    */
   on(eventName, listener) {
-    this.plugin[NAMESPACE].emitter.on(eventName, listener);
+    const { emitter } = this.plugin[NAMESPACE];
+    emitter.on(eventName, listener);
     return this;
   },
   /**
@@ -62,7 +66,8 @@ const extension = {
    * @return {this}
    */
   once(eventName, listener) {
-    this.plugin[NAMESPACE].emitter.once(eventName, listener);
+    const { emitter } = this.plugin[NAMESPACE];
+    emitter.once(eventName, listener);
     return this;
   },
   /**
@@ -80,7 +85,7 @@ const extension = {
  * @param {Anatomic} app
  */
 export default (app) => {
-  app.plugin.$events = createNamespace();
+  app.plugin[NAMESPACE] = createNamespace();
 
   Object.getPrototypeOf(app).extend(extension);
 };
