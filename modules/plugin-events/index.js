@@ -21,24 +21,54 @@ const createNamespace = () => {
 };
 
 const extension = {
-  emit(...args) {
-    return this.plugin[NAMESPACE].emitter.emit(...args);
-  },
-  emitAsync(...args) {
-    return this.plugin[NAMESPACE].emitter.emitAsync(...args);
-  },
-  off(...args) {
-    this.plugin[NAMESPACE].emitter.off(...args);
+  /**
+   * @param {string} eventName
+   * @param {...any} args
+   * @return {this}
+   */
+  emit(eventName, ...args) {
+    this.plugin[NAMESPACE].emitter.emit(eventName, ...args);
     return this;
   },
-  on(...args) {
-    this.plugin[NAMESPACE].emitter.on(...args);
+  /**
+   * @param {string} eventName
+   * @param {...any} args
+   * @return {Promise<Array<any>>} results of the listeners via Promise.all
+   */
+  emitAsync(eventName, ...args) {
+    return this.plugin[NAMESPACE].emitter.emitAsync(eventName, ...args);
+  },
+  /**
+   * @param {string} eventName
+   * @param {function} listener
+   * @return {this}
+   */
+  off(eventName, listener) {
+    this.plugin[NAMESPACE].emitter.off(eventName, listener);
     return this;
   },
-  once(...args) {
-    this.plugin[NAMESPACE].emitter.once(...args);
+  /**
+   * @param {string} eventName
+   * @param {function} listener
+   * @return {this}
+   */
+  on(eventName, listener) {
+    this.plugin[NAMESPACE].emitter.on(eventName, listener);
     return this;
   },
+  /**
+   * @param {string} eventName
+   * @param {function} listener
+   * @return {this}
+   */
+  once(eventName, listener) {
+    this.plugin[NAMESPACE].emitter.once(eventName, listener);
+    return this;
+  },
+  /**
+   * @param {string} eventName
+   * @return {Promise<Array<any>>} arguments of the event
+   */
   onceThen(eventName) {
     return new Promise((resolve) => {
       this.once(eventName, (...args) => resolve(args));
@@ -46,6 +76,9 @@ const extension = {
   },
 };
 
+/**
+ * @param {Anatomic} app
+ */
 export default (app) => {
   app.plugin.$events = createNamespace();
 

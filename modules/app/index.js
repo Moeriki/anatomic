@@ -3,7 +3,7 @@ import { mapValues } from '@anatomic/utils';
 // private
 
 /**
- * @param {*} value
+ * @param {any} value
  * @return {object} property descriptor
  */
 const createExtension = (value) => ({
