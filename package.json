@@ -13,6 +13,7 @@
     "node": ">=10"
   },
   "scripts": {
+    "install": "lerna bootstrap",
     "lint": "eslint --cache --fix modules/",
     "test": "yarn run lint && jest --coverage"
   },
