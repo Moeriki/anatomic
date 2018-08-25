@@ -1,5 +1,5 @@
 {
-  "name": "@anatomic/demo",
+  "name": "@anatomic/app-core",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
@@ -10,12 +10,9 @@
   "engines": {
     "node": ">=10"
   },
-  "main": "index.js",
-  "scripts": {
-    "start": "node -r esm ."
-  },
+  "module": "index.js",
   "dependencies": {
-    "@anatomic/app-core": "^1",
-    "esm": "3.0.80"
+    "@anatomic/app": "1.0.0",
+    "@anatomic/plugin-events": "1.0.0"
   }
 }

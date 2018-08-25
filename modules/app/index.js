@@ -44,7 +44,7 @@ export const Anatomic = {
  * @param {object} [options]
  * @return {Anatomic} app
  */
-export const createApp = (options = {}) => {
+export default (options = {}) => {
   const app = Object.create(Anatomic);
 
   app.env = process.env.NODE_ENV

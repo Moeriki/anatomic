@@ -1,4 +1,4 @@
-import { createApp, Anatomic } from '..';
+import createApp, { Anatomic } from '..';
 
 const { NODE_ENV } = process.env;
 

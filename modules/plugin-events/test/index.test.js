@@ -1,4 +1,4 @@
-import { createApp } from '@anatomic/app';
+import createApp from '@anatomic/app';
 
 import defer from 'p-defer';
 import delay from 'delay';

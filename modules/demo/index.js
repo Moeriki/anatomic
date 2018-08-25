@@ -1,3 +1,9 @@
-import { createApp } from '@anatomic/app';
+import createApp from '@anatomic/app-core';
 
-createApp();
+const app = createApp();
+
+app.on('test-event', () => {
+  console.log('OK');
+});
+
+app.emit('test-event');
