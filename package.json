@@ -1,0 +1,65 @@
+{
+  "name": "anatomic",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": {
+    "name": "Dieter Luypaert",
+    "email": "dieterluypaert@gmail.com"
+  },
+  "repository": "https://github.com/Moeriki/anatomic",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "lint": "eslint --cache --fix modules/",
+    "test": "yarn run lint && jest --coverage"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "21.22.0",
+    "jest": "^23.5.0",
+    "lerna": "^3.1.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "rules": {
+      "no-param-reassign": [
+        "error",
+        {
+          "ignorePropertyModificationsFor": [
+            "app"
+          ]
+        }
+      ]
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "modules/**.js",
+      "!modules/**/.eslintrc.js",
+      "!modules/demo/**",
+      "!**/node_modules/**"
+    ]
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "useTabs": false
+  }
+}

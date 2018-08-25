@@ -1,0 +1,18 @@
+{
+  "name": "@anatomic/app",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Dieter Luypaert",
+    "email": "dieterluypaert@gmail.com"
+  },
+  "repository": "https://github.com/Moeriki/anatomic",
+  "engines": {
+    "node": ">=10"
+  },
+  "module": "index.js",
+  "dependencies": {
+    "@anatomic/utils": "^1",
+    "debug": "3.1.0"
+  }
+}

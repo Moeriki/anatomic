@@ -1,0 +1,21 @@
+{
+  "name": "@anatomic/demo",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Dieter Luypaert",
+    "email": "dieterluypaert@gmail.com"
+  },
+  "repository": "https://github.com/Moeriki/anatomic",
+  "engines": {
+    "node": ">=10"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esm ."
+  },
+  "dependencies": {
+    "@anatomic/app": "^1",
+    "esm": "3.0.80"
+  }
+}
