@@ -1,11 +1,4 @@
-import deepmerge from 'deepmerge';
-import isPlainObject from 'is-plain-object';
-
-/**
- * When merging, overwrite arrays completely.
- * https://github.com/KyleAMathews/deepmerge#arraymerge
- */
-const arrayMerge = (dst, src) => src;
+import { get, isPlainObject, merge } from '@anatomic/utils';
 
 /**
  * @constructor
@@ -21,18 +14,14 @@ Object.assign(Options.prototype, {
    * @return {Options}
    */
   defaults(options) {
-    return new Options(options).merge(this);
+    return new Options(options).merge(this.plain());
   },
   /**
    * @param {Array<string>|string} path
    * @return {any}
    */
   get(path) {
-    const arrPath = Array.isArray(path) ? path : path.split('.');
-    const result = arrPath.reduce(
-      (acc, prop) => (acc == null ? undefined : acc[prop]),
-      this,
-    );
+    const result = get(path, this);
     return isPlainObject(result) ? new Options(result) : result;
   },
   /**
@@ -40,7 +29,13 @@ Object.assign(Options.prototype, {
    * @return {Options}
    */
   merge(options) {
-    return new Options(deepmerge(this, options, { arrayMerge }));
+    return new Options(merge(this.plain(), options));
+  },
+  /**
+   * @return {object}
+   */
+  plain() {
+    return Object.assign({}, this);
   },
 });
 

@@ -1,4 +1,4 @@
-import { mapValues } from '@anatomic/utils';
+import { mapValuesWithKey } from '@anatomic/utils';
 
 // private
 
@@ -17,7 +17,7 @@ const createExtension = (value) => ({
  * @param {object} extensions
  * @return {object} properties descriptors
  */
-const createExtensions = mapValues(createExtension);
+const createExtensions = mapValuesWithKey(createExtension);
 
 // exports
 

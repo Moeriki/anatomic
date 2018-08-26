@@ -12,9 +12,7 @@
   },
   "module": "index.js",
   "dependencies": {
-    "@anatomic/utils": "^1.0.0",
-    "deepmerge": "2.1.1",
-    "is-plain-object": "2.0.4"
+    "@anatomic/utils": "^1.0.0"
   },
   "devDependencies": {
     "@anatomic/app": "^1"

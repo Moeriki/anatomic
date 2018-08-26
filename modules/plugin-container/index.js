@@ -1,14 +1,11 @@
 import createDebug from 'debug';
 import fnArgs from 'fn-args';
-
-const debug = createDebug('anatomic:container');
+import { defaultsDeep } from '@anatomic/utils';
 
 const NAMESPACE = '$container';
 
-const createNamespace = () => ({
-  container: {},
-  factories: {},
-});
+const debug = createDebug('anatomic:container');
+const defaultNamespace = defaultsDeep({ container: {}, factories: {} });
 
 const extension = {
   /**
@@ -63,9 +60,7 @@ const extension = {
    */
   set(values) {
     const { container } = this.plugin[NAMESPACE];
-    Object.entries(values).forEach(([name, value]) => {
-      container[name] = value;
-    });
+    Object.assign(container, values);
     return this;
   },
 };
@@ -74,7 +69,7 @@ const extension = {
  * @param {Anatomic} app
  */
 export default (app) => {
-  app.plugin[NAMESPACE] = createNamespace();
+  app.plugin[NAMESPACE] = defaultNamespace(app.plugin[NAMESPACE]);
 
   Object.getPrototypeOf(app).extend(extension);
 };
