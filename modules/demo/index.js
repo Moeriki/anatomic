@@ -3,13 +3,7 @@ import createApp from '@anatomic/app-core';
 const app = createApp();
 
 app
-  .set({
-    boot() {
-      console.log('Demo booted');
-    },
+  .once('started', ({ logger }) => {
+    logger.info('App started!');
   })
-  .once('boot', () => {
-    const { boot } = app.get();
-    boot();
-  })
-  .emit('boot');
+  .emit('started', app.get());

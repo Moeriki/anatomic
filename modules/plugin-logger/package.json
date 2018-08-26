@@ -1,5 +1,5 @@
 {
-  "name": "@anatomic/demo",
+  "name": "@anatomic/plugin-logger",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
@@ -10,15 +10,16 @@
   "engines": {
     "node": ">=10"
   },
-  "main": "index.js",
-  "scripts": {
-    "start": "node -r esm . | georgeous --preset bunyan"
-  },
+  "module": "index.js",
   "dependencies": {
-    "@anatomic/app-core": "^1",
-    "esm": "3.0.80"
+    "@anatomic/utils": "^1",
+    "pino": "5.4.0"
   },
   "devDependencies": {
-    "georgeous": "^0.3.0"
+    "@anatomic/app": "^1",
+    "@anatomic/plugin-container": "^1"
+  },
+  "peerDependencies": {
+    "@anatomic/app": "^1"
   }
 }

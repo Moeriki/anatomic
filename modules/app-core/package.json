@@ -15,6 +15,7 @@
     "@anatomic/app": "1.0.0",
     "@anatomic/plugin-config": "1.0.0",
     "@anatomic/plugin-container": "1.0.0",
-    "@anatomic/plugin-events": "1.0.0"
+    "@anatomic/plugin-events": "1.0.0",
+    "@anatomic/plugin-logger": "1.0.0"
   }
 }
