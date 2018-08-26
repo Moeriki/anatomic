@@ -1,5 +1,5 @@
 {
-  "name": "@anatomic/app-core",
+  "name": "@anatomic/plugin-glob",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
@@ -12,11 +12,12 @@
   },
   "module": "index.js",
   "dependencies": {
-    "@anatomic/app": "1.0.0",
-    "@anatomic/plugin-config": "1.0.0",
-    "@anatomic/plugin-container": "1.0.0",
-    "@anatomic/plugin-events": "1.0.0",
-    "@anatomic/plugin-glob": "1.0.0",
-    "@anatomic/plugin-logger": "1.0.0"
+    "globby": "8.0.1"
+  },
+  "devDependencies": {
+    "@anatomic/app": "^1"
+  },
+  "peerDependencies": {
+    "@anatomic/app": "^1"
   }
 }

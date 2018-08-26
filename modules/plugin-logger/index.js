@@ -5,6 +5,9 @@ const NAMESPACE = '$logger';
 
 export const createLogger = pino;
 
+/**
+ * @param {Anatomic} app
+ */
 export default (app) => {
   const logger = createLogger(app.options.logger);
 
