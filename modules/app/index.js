@@ -30,6 +30,9 @@ export const Anatomic = {
     Object.defineProperties(this, createExtensions(extensions));
     return this;
   },
+  // global() {
+  //   global.app = this;
+  // },
   /**
    * @param {function} plugin
    * @return {this}

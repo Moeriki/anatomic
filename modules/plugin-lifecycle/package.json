@@ -1,0 +1,18 @@
+{
+  "name": "@anatomic/plugin-lifecycle",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Dieter Luypaert",
+    "email": "dieterluypaert@gmail.com"
+  },
+  "repository": "https://github.com/Moeriki/anatomic",
+  "engines": {
+    "node": ">=10"
+  },
+  "module": "index.js",
+  "peerDependencies": {
+    "@anatomic/app": "^1",
+    "@anatomic/plugin-events": "^1"
+  }
+}
